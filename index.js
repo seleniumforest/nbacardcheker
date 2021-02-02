@@ -30,8 +30,7 @@ async function check() {
 
     var response = await request.json();
     var packs = response.data.searchPackListings.data.searchSummary.data.data;
-    var available = packs.filter(x => x.remaining > 0 && new Date(x.expiryDate) > new Date());
-
+    var available = packs.filter(x => x.remaining > 0);
     console.log(`${new Date()} Total Packs: ${packs.length} Available: ${available.length}`);
     
     if (available.length > 0) {
